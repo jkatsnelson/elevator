@@ -1,0 +1,19 @@
+{
+  "meteor": {
+    "git": "https://github.com/meteor/meteor.git",
+    "branch": "master",
+    "commit": "0ffea1c4c308ed24906984f99b13b8fca5a0956c"
+  },
+  "dependencies": {
+    "basePackages": {
+      "mocha-web": {}
+    },
+    "packages": {
+      "mocha-web": {
+        "git": "https://github.com/mad-eye/meteor-mocha-web.git",
+        "tag": "v0.1.2",
+        "commit": "83943f4e7927e6289d4a6f17581b71c8cc505a65"
+      }
+    }
+  }
+}
