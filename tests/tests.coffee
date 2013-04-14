@@ -5,7 +5,7 @@ describe "elevators", ->
     Elevators = window.Elevators
   afterEach ->
     window.makeSystem()
-    window.makeElevators 1
+    window.make_elevators 1
   it "should have a passenger array", ->
     Elevators[0].passengers.should.be.a 'array'
     Elevators[0].passengers.length.should.equal 10
@@ -17,19 +17,13 @@ describe "elevators", ->
       Elevators[0].direction = 'up'
       Elevators[0].destination = 1
       floor.should.not.equal Elevators[0].move()
-    it "should not go past the 9th floor if it is going up", ->
-      Elevators[0].floor = 8
-      Elevators[0].destination = 9
-      Elevators[0].direction = before = 'up'
-      Elevators[0].move()
-      before.should.not.equal Elevators[0].direction
 
 describe "Elevator Request System", ->
   beforeEach ->
     System = window.System
   afterEach ->
     window.makeSystem()
-    window.makeElevators 1
+    window.make_elevators 1
   describe "request", ->
     it "should take requests", ->
       System.request.should.be.a 'function'
@@ -44,21 +38,14 @@ describe "Elevator Request System", ->
   describe "elevator arrival", ->
     it "should have an arrival function", ->
       System.arrival.should.be.a 'function'
-    it "should prevent an elevator from going past its destination", ->
-      window.Elevators[0].destination = before = 3
-      window.Elevators[0].direction = 'up'
-      window.Elevators[0].floor = 2
-      window.Elevators[0].move()
-      before.should.not.equal window.Elevators[0].destination
-    it "should pop requests into an elevator's passenger queue and change destination", ->
+    it "should pop requests into an elevator's passenger queue", ->
       System.request 1, 6
       before = 0
       window.Elevators[0].floor = 1
-      window.Elevators[0].destination = previous_destination = 3
+      window.Elevators[0].destination = 3
       window.Elevators[0].direction = 'up'
-      window.System.arrival window.Elevators[0], true
-      afterArrival = window.Elevators[0].passengers[6]
-      previous_destination.should.not.equal window.Elevators[0].destination
+      afterArrival = window.System.arrival window.Elevators[0]
+      afterArrival = afterArrival.passengers[6]
       afterArrival.should.not.equal before
     it "should pick up a passenger at the current level", ->
       System.request 1, 6
@@ -68,23 +55,20 @@ describe "Elevator Request System", ->
       window.Elevators[0].floor = 0
       window.Elevators[0].destination = 1
       window.Elevators[0].direction = 'up'
-      window.Elevators[0].move()
+      window.System.arrival window.Elevators[0]
       requests.should.not.equal System.requests[1]
 
 describe "check_requests", ->
   beforeEach ->
     window.makeSystem()
-    window.makeElevators 1
-  it "should send an elevator up if there is a request at a higher level", ->
+    window.make_elevators 1
+  it "should give an elevator a direction", ->
     elevator = window.Elevators[0]
     elevator.floor = 1
     window.System.request 5, 9
-    window.check_requests elevator, true
-    elevator.destination.should.equal 5
-  it "should pick up a passenger on the elevator's current level", ->
+    result = window.check_requests elevator
+    result.direction.should.be.a 'string'
+  it "should make elevators idle if there are no requests", ->
     elevator = window.Elevators[0]
-    elevator.floor = 1
-    elevator.destination = null
-    window.System.request 1, 9
-    window.check_requests elevator, true
-    elevator.destination.should.equal 1
+    result = window.check_requests elevator
+    result.should.be.false
