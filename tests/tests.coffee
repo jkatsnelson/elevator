@@ -4,7 +4,7 @@ describe "elevators", ->
   beforeEach ->
     Elevators = window.Elevators
   afterEach ->
-    window.makeSystem()
+    window.make_system()
     window.make_elevators 1
   it "should have a passenger array", ->
     Elevators[0].passengers.should.be.a 'array'
@@ -22,7 +22,7 @@ describe "Elevator Request System", ->
   beforeEach ->
     System = window.System
   afterEach ->
-    window.makeSystem()
+    window.make_system()
     window.make_elevators 1
   describe "request", ->
     it "should take requests", ->
@@ -60,7 +60,7 @@ describe "Elevator Request System", ->
 
 describe "check_requests", ->
   beforeEach ->
-    window.makeSystem()
+    window.make_system()
     window.make_elevators 1
   it "should give an elevator a direction", ->
     elevator = window.Elevators[0]

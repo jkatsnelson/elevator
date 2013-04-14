@@ -23,8 +23,3 @@ window.make_elevators = (num) ->
       if elevator.direction is 'down' then elevator.floor--
       return elevator
     return elevator
-
-window.startElevators = () ->
-  _.each window.Elevators, (elevator) ->
-    if elevator.direction is null
-      window.System.arrival elevator

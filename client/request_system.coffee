@@ -5,7 +5,7 @@ floor_map = () ->
   _([1..10]).map () ->
     _([1..10]).map (n) -> 0
 
-window.makeSystem = () ->
+window.make_system = () ->
   window.System = system = {}
 
   system.request = (current_floor, destination) ->
@@ -19,13 +19,14 @@ window.makeSystem = () ->
       _([floor..9]).each (destination) -> elevator.add_passenger destination
     if elevator.direction is 'down'
       _([0..floor]).each (destination) -> elevator.add_passenger destination
-    setTimeout system.departure, 1000, [elevator]
+    setTimeout system.departure, 1000, elevator
     return elevator
 
   system.departure = (elevator) ->
     floor = elevator.floor
+    console.log 'departing from ' + floor
     if floor is 9 then elevator.direction = 'down'
-    if floor is 1 then elevator.direction = 'up'
+    if floor is 0 then elevator.direction = 'up'
     if elevator.floor is elevator.destination
       elevator.destination = null
       elevator.direction = null

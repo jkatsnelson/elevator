@@ -12,14 +12,12 @@ make_requests = (num) ->
 
 window.check_requests = (elevator) ->
   floor = elevator.floor
-  requests = window.System.requests
   found_request = false
   _([0..9]).each (num) ->
     unless found_request
       if check_floors elevator, num then found_request = true
   if elevator.direction then return window.System.arrival elevator
-  else 
-    setTimeout window.startElevators, 1000
+  else
     return false
 
 check_floors = (elevator, num) ->
@@ -41,9 +39,13 @@ check_floors = (elevator, num) ->
           found_request = true
   found_request
 
+window.startElevators = () ->
+  _.each window.Elevators, (elevator) ->
+    if elevator.direction is null
+      window.check_requests elevator
+
 Meteor.startup ->
-  window.makeSystem()
+  window.make_system()
   window.make_elevators 2 
   make_requests 20
-  console.log window.System.requests
-  window.startElevators()
+  setInterval window.startElevators, 2000
