@@ -13,11 +13,7 @@ Run it with this command to see my tests:
 
 When the tests are running, the visualization looks reminiscent of a building in the twilight zone.
 
-If you want to see the visualization work (to a degree):
-
-```mrt```
-
-And enjoy!
+If you want to see the visualization work, use mrt
 
 ----
 Based on this interview question:
