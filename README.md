@@ -15,8 +15,6 @@ When the tests are running, the visualization looks reminiscent of a building in
 
 If you want to see the visualization work (to a degree):
 
-Launch app with:
-
 ```mrt```
 
 And enjoy!
