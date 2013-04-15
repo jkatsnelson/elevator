@@ -20,18 +20,29 @@ Based on this interview question:
 --------------------------
 
 Challenge 2 - Elevator Action
+
 In this challenge, you will simulate the elevators in a building.  The challenge ends when all people have been delivered to the floors they have requested.
+
 Rules/Requirements
 
-there should be 3 elevators
-there should be 10 floors
-each elevator should start at a random floor
-each elevator should have a “direction” (up or down)
-simulate the action of 20 people
-each person should arrive at a random floor, and request to go to a random floor
-when a person requests a floor, they can only request “up” or “down” if the elevator has not arrived
-when an elevator arrives, a person may enter it if it is traveling in the direction they wish to go
-upon entering, the person should enter the floor they wish to travel to
+* there should be 3 elevators
+
+* there should be 10 floors
+
+* each elevator should start at a random floor
+
+* each elevator should have a “direction” (up or down)
+
+* simulate the action of 20 people
+
+* each person should arrive at a random floor, and request to go to a random floor
+
+* when a person requests a floor, they can only request “up” or “down” if the elevator has not arrived
+
+* when an elevator arrives, a person may enter it if it is traveling in the direction they wish to go
+
+* upon entering, the person should enter the floor they wish to travel to
+
 Extra Credit
 
 Visually display the action of the elevators and/or people
