@@ -1,6 +1,19 @@
 Elevator
 =
 ------
+
+Important note:
+-
+
+Comment out all the tests if you want the visuals to work. The tests make elevators and people in a way that might make you nostalgic for the twilight zone.
+
+Also, this uses [Meteorite].
+
+Run it with this command: 
+
+```METEOR_MOCHA_TEST_DIRS="tests/" mrt```
+
+----
 Based on this interview question:
 --------------------------
 
@@ -30,7 +43,8 @@ TODOs
 
 * conform to the rules
     --
-    * After coming to a solution I liked, I noticed that I didn't conform to this rule: "when a person requests a floor, they can only request “up” or “down” if the elevator has not arrived"
+    * After coming to a solution I liked, I noticed that I didn't conform to this rule: 
+    >"when a person requests a floor, they can only request “up” or         “down” if the elevator has not arrived"
 
    * If I went back to implement it, it would be rather trivial. In fact, if you're interested in interviewing me ONLY if I complete this requirement, this is what I would go back and do (gladly):
 
@@ -44,11 +58,11 @@ TODOs
 
 * Switch to pseudo-classical instantiation (?)
     --
-    * I find it more readable not to use it, preferring a function that "makes an elevator" vs creating a "new Elevator" but I know it is often argued that the performance and memory gains of using the "new" constructor and using prototypes is worth it.
+    * I find it more readable not to use it. I prefer a function that "makes an elevator" vs instantiating a "new Elevator" but I know the performance and memory gains of using the "new" constructor and using prototypes is worth it. I certainly won't argue against optimization.
 
-* Polluting the window
+* Find a way not to pollute the window
   --
-    * In order to test, I attached many functions to the window. It seems that was the convention that the meteorite mocha-web package uses
+    * In order to test, I attached functions to the window. It seems that was the convention that the meteorite mocha-web package uses
 
 * Prevent elevators from chasing the same request
  --
@@ -60,10 +74,12 @@ TODOs
     * I could have had passengers exit as well as enter
     * I could have implemented a button to "add requests"
 
-* Implement capacity
+* Implement elevator capacity
     --
     * I think with how I built it, this wouldn't be that hard...
 
 * Integration testing
     --
     * Testing the whole process instead of the individual functions could have been a nice final step.
+
+[Meteorite]: https://github.com/oortcloud/meteorite
