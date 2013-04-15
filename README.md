@@ -2,16 +2,21 @@ Elevator
 =
 ------
 
-Important note:
+How to run:
 -
 
-Comment out all the tests if you want the visuals to work. The tests make elevators and people in a way that might make you nostalgic for the twilight zone.
+This uses [Meteorite].
 
-Also, this uses [Meteorite].
-
-Run it with this command: 
+Run it with this command to see my tests: 
 
 ```METEOR_MOCHA_TEST_DIRS="tests/" mrt```
+
+When the tests are running, the visualization looks reminiscent of a building in the twilight zone.
+
+If you want to see the visualization work (to a degree):
+
+Launch app with:
+```mrt```
 
 ----
 Based on this interview question:
@@ -77,6 +82,10 @@ TODOs
 * Implement elevator capacity
     --
     * I think with how I built it, this wouldn't be that hard...
+
+* Use list comprehensions instead of _.each
+    --
+    * Coffeescript would optimize my loops if I did that.
 
 * Integration testing
     --
