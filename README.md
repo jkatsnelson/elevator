@@ -19,6 +19,8 @@ Launch app with:
 
 ```mrt```
 
+And enjoy!
+
 ----
 Based on this interview question:
 --------------------------
