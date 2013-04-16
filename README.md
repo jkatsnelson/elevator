@@ -69,9 +69,11 @@ TODOs
         This isn't significantly different from my current architecture, since the elevator doesn't check destination values until it reaches that passenger's floor.
 
 
-* Switch to pseudo-classical instantiation
+* Switch to pseudo-classical instantiation, or revealing module pattern
     --
     * I could have switched to either pseudo-classical or prototypal instantiation. I know the performance and memory gains of using the "new" constructor or using prototypes can be worthwhile in a production environment.
+    * I would prefer to do a revealing module pattern if I did it again. I think it's the most readable and it's easy to maintain.
+
 
 * Find a way not to pollute the window
   --
