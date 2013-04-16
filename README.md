@@ -69,9 +69,9 @@ TODOs
         This isn't significantly different from my current architecture, since the elevator doesn't check destination values until it reaches that passenger's floor.
 
 
-* Switch to pseudo-classical instantiation (?)
+* Switch to pseudo-classical instantiation
     --
-    * I find it more readable not to use it. I prefer a function that "makes an elevator" vs instantiating a "new Elevator" but I know the performance and memory gains of using the "new" constructor and using prototypes is worth it. I certainly won't argue against optimization.
+    * I could have switched to either pseudo-classical or prototypal instantiation. I know the performance and memory gains of using the "new" constructor or using prototypes can be worthwhile in a production environment.
 
 * Find a way not to pollute the window
   --
